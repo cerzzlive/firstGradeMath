@@ -1,10 +1,14 @@
 package g1.math;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -18,6 +22,19 @@ public class HomeActivity extends Activity {
         ImageView imageView2 = (ImageView)findViewById(R.id.menu2);
         scaleBitmap(imageView1);
         scaleBitmap(imageView2);
+        
+        imageView1.setOnTouchListener(new OnTouchListener(){
+
+			public boolean onTouch(View arg0, MotionEvent arg1) {
+				if(arg1.getAction() == MotionEvent.ACTION_DOWN) {
+					Intent i = new Intent(HomeActivity.this, L1Activity.class);
+	        		startActivity(i);
+				}
+				return false;
+				
+			}
+			
+        });
         
     }
     
